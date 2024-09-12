@@ -7,8 +7,83 @@ No entanto, assim como fizemos no projeto da Globo, evite usar o site real da UO
 ## 🎨 Layout
 
 ## 🛠️ Recursos
+### 📙 Documentação da API
+⚠️
+Juntamente com cada requisição, você deverá enviar um código UUID. Esse código corresponde à sua sala de bate-papo, onde você poderá ver e enviar mensagens. <br>
 
-## 📙 Documentação da API
+1 - Entre nesse site: https://www.uuidgenerator.net/ <br>
+2 - Copie o código que aparece na tela: <br>
+3 - Você irá gerar o código uma vez e utilizará sempre o mesmo. <br>
+4 - Ele será enviado no final do link de cada uma das requisições. Por exemplo, o link da requisição de entrar na sala ficaria assim: 
+https://mock-api.driven.com.br/api/v6/uol/participants/SEU_UUID <br>
+
+### Entrar na sala
+Para entrar na sala, deve-se enviar ao servidor o nome do usuário. 
+Para isso, envie uma requisição POST para a URL:<br>
+https://mock-api.driven.com.br/api/v6/uol/participants/SEU_UUID <br>
+Enviando um objeto no formato:<br>
+
+**{<br>
+  name: "João"<br>
+}<br>**
+
+O servidor pode responder com status 400 se já houver um usuário online com esse nome. Se for o caso, a aplicação deve pedir um novo nome até que o servidor responda com status 200.
+
+### Manter conexão
+O servidor precisa saber que o usuário continua online. Se o usuário não envia nenhuma mensagem, como ele pode inferir se o usuário continua ou não na página?
+Para resolver isso, o servidor espera que seu sistema avise continuamente que o usuário permanece utilizando o chat. Para isso, o sistema deve enviar uma requisição POST para a URL:
+https://mock-api.driven.com.br/api/v6/uol/status/SEU_UUID
+Enviando um objeto no formato enviando o nome do usuário que foi pedido ao entrar na página.
+{
+  name: "João"
+}
+Esta requisição deve ser feita a cada cinco segundos. 
+### Buscar mensagens
+Para buscar mensagens do servidor, mande uma requisição GET para a URL:
+https://mock-api.driven.com.br/api/v6/uol/messages/SEU_UUID
+A resposta será um array de objetos, como o seguinte:
+[
+	{
+		from: "João",
+		to: "Todos",
+		text: "entra na sala...",
+		type: "status",
+		time: "08:01:17"
+	},
+	{
+		from: "João",
+		to: "Todos",
+		text: "Bom dia",
+		type: "message",
+		time: "08:02:50"
+	},
+]
+Nos objetos, o campo type identifica o tipo da mensagem. Existem os seguintes valores:
+status: mensagem de estado, como entrou ou saiu da sala;
+message: mensagem pública;
+private_message: mensagem particular.
+### Enviar mensagens
+Para enviar mensagens, você deve fazer uma requisição POST para a URL:
+https://mock-api.driven.com.br/api/v6/uol/messages/SEU_UUID
+Nesta requisição, você deve enviar um objeto como o seguinte:
+{
+	from: "nome do usuário",
+	to: "nome do destinatário (Todos se não for um específico)",
+	text: "mensagem digitada",
+	type: "message" // ou "private_message"
+}
+### Buscar participantes
+Para buscar a lista de participantes, envie uma requisição GET para a URL:
+https://mock-api.driven.com.br/api/v6/uol/participants/SEU_UUID
+Esta requisição retornará um array de objetos no formato:
+[
+	{
+		name: "João"
+	},
+	{
+		name: "Maria"
+	}
+]
 
 ## ✅ Requisitos
 
