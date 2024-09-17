@@ -5,6 +5,7 @@ Seu próximo projeto com JavaScript será a implementação de um bate-papo tota
 No entanto, assim como fizemos no projeto da Globo, evite usar o site real da UOL como referência, pois apesar de inspirado nele, nossa interface é totalmente diferente (entenda diferente como muito melhor 😅).
 
 ## 🎨 Layout
+Será utilizado o FIGMA para orientação do layout que será usado para fazer o site.
 
 ## 🛠️ Recursos
 ### 📙 Documentação da API
