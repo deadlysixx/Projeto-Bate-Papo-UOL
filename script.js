@@ -25,3 +25,10 @@ function getInChat() {
     setInterval(getAllUsersConnected, 10000);
 }
 
+function validateName(err) {
+    document.querySelector(".name-section").classList.remove("hidden");
+    document.querySelector(".loading").classList.add("hidden");
+    document.querySelector(".name-error").innerHTML = `Erro ${err.response.status} - Nome já inserido no chat! Tente outro...`;
+    document.querySelector(".name-section input").value = "";
+}
+
