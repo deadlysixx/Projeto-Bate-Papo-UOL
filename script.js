@@ -16,3 +16,12 @@ function signin() {
     promise.catch(validateName);
 }
 
+function getInChat() {
+    document.querySelector(".name-error").innerHTML = "";
+    document.querySelector(".signin").classList.add("hidden");
+
+    setInterval(keepUserConnected, 5000);
+    setInterval(getMessages, 3000);
+    setInterval(getAllUsersConnected, 10000);
+}
+
