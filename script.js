@@ -82,3 +82,15 @@ function loadMessages(to, from, type, text) {
                 </div>
             `;
         }
+
+    } else {
+        document.querySelector("main").innerHTML += `
+            <div class="message ${typeMessage}">
+                <p class="text">
+                    <span class="hour">(${dataFormatted})</span>
+                    <strong>${from}</strong> para <strong>${to}</strong>: ${text}
+                </p>
+            </div>
+        `;
+    }
+}
