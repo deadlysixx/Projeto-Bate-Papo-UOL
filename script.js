@@ -53,3 +53,16 @@ function messageColorByType(type) {
     if (type === 'status') typeMessage = 'in-out-color';
     else if (type === 'message') typeMessage = '';
 }
+
+// Formação de relógio Padrão (GMT-3)
+function getHourFormatted(hour) {
+    getHour = hour.split(':')[0];
+    hourFormatted = Number(getHour - 3);
+
+    if (hourFormatted <= 0) hourFormatted = (hourFormatted + 12).toString();
+
+    if (hourFormatted < 10) hourFormatted = `0${hourFormatted}`;
+    else hourFormatted = hourFormatted.toString();
+
+    dataFormatted = hour.replace(getHour, hourFormatted);
+}
