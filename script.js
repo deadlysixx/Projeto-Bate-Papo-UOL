@@ -244,3 +244,10 @@ function selectVisibility(visible) {
         toUser.innerHTML = `Enviando para <span>${userToSend}</span> (${messageStatus})`;
     }
 }
+
+// Enviar mensagem ao pressionar enter
+function sendInputOnEnter() {
+    document.querySelector('footer input').addEventListener('keydown', e => e.key === 'Enter' ? sendMessage() : false);
+    document.querySelector('.signin-container input').addEventListener('keydown', e => e.key === 'Enter' ? signin() : false);
+}
+sendInputOnEnter();
