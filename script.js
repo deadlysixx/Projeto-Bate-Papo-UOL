@@ -94,3 +94,18 @@ function loadMessages(to, from, type, text) {
         `;
     }
 }
+
+// Descendo barra de rolagem a cada nova mensagem
+function scrollToEveryNewMessage(message) {
+    let length = message.length - 1;
+
+    if (count === 0) {
+        prevMess = message[length].time;
+        if (curMess !== null) {
+            if (prevMess !== curMess) {
+                let screenHeight = "" + window.innerHeight / 8;
+                document.querySelector(".message:last-child").scrollIntoView(false);
+                window.scrollBy(0, screenHeight);
+            }
+        }
+        count++;
