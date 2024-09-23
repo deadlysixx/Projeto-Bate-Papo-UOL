@@ -121,3 +121,19 @@ function scrollToEveryNewMessage(message) {
         }
     }
 }
+
+// Carregando todas as novas mensagens
+function getMessages() {
+    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages/04ec5f53-74f5-4dce-b49d-8a6f52338b90");
+
+    promise.then((res) => {
+        resetAndLoadMessages();
+
+        for (let i = 0; i < res.data.length; i++) {
+            messageColorByType(res.data[i].type);
+            getHourFormatted(res.data[i].time);
+            loadMessages(res.data[i].to, res.data[i].from, res.data[i].type, res.data[i].text);
+        }
+        scrollToEveryNewMessage(res.data);
+    });
+}
