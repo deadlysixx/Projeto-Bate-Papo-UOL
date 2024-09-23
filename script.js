@@ -32,3 +32,11 @@ function validateName(err) {
     document.querySelector(".name-section input").value = "";
 }
 
+// Carregar e resetar mensagens
+function resetAndLoadMessages() {
+    document.querySelector("main").innerHTML = "";
+
+    if (document.querySelector("main").innerHTML) document.querySelector(".loading-messages").classList.remove("hidden");
+    else document.querySelector(".loading-messages").classList.add("hidden");
+}
+
