@@ -137,3 +137,15 @@ function getMessages() {
         scrollToEveryNewMessage(res.data);
     });
 }
+
+// Selecionando usuário e status
+function getUserAndStatus() {
+    to = userToSend !== undefined ? userToSend : "Todos";
+
+    if (messageStatus !== undefined) {
+        if (messageStatus === "Público") type = "message";
+        else if (messageStatus === "Reservadamente") type = "private_message";
+    } else {
+        type = "message";
+    }
+}
