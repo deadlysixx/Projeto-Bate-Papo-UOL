@@ -66,3 +66,19 @@ function getHourFormatted(hour) {
 
     dataFormatted = hour.replace(getHour, hourFormatted);
 }
+
+// Carregando mensagens em HMTL
+function loadMessages(to, from, type, text) {
+    const nameInput = document.querySelector(".name-section input").value;
+
+    if (type === "private_message") {
+        if (to === nameInput || from === nameInput) {
+            document.querySelector("main").innerHTML += `
+                <div class="message reserved-color">
+                    <p class="text">
+                        <span class="hour">(${dataFormatted})</span>
+                        <strong>${from}</strong> reservadamente para <strong>${to}</strong>: ${text}
+                    </p>
+                </div>
+            `;
+        }
