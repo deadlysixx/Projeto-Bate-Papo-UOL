@@ -174,3 +174,17 @@ function sendMessage() {
 
     messageInput.value = "";
 }
+
+// Carregando usuários da página
+function loadUsers(name) {
+    if (userToSend === name) getUserStillActive = 'selected';
+    else getUserStillActive = '';
+
+    document.querySelector(".users-connected").innerHTML += `
+        <div class="user ${getUserStillActive}" onclick="selectUser(this)">
+            <ion-icon name="person-circle"></ion-icon>
+            <p>${name}</p>
+            <img src="images/check.png" alt="check">
+        </div>
+    `;
+}
