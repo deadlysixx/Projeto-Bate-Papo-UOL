@@ -47,3 +47,9 @@ function keepUserConnected() {
 
     promise.then((res) => res.data);
 }
+
+// Cor da mensagem
+function messageColorByType(type) {
+    if (type === 'status') typeMessage = 'in-out-color';
+    else if (type === 'message') typeMessage = '';
+}
