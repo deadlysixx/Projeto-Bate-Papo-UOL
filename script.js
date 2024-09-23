@@ -230,3 +230,17 @@ function selectUser(user) {
         toUser.innerHTML = `Enviando para <span>${userToSend}</span> (${messageStatus})`;
     }
 }
+
+// Selecionar tipo de visibilidade (Publico ou Particular)
+function selectVisibility(visible) {
+    const status = document.querySelector(".status");
+    let toUser = document.querySelector('.to-message h4');
+
+    if (status !== null) status.classList.remove("status");
+    visible.classList.add("status");
+
+    if (visible.classList.contains("status")) {
+        messageStatus = visible.querySelector('h3').innerHTML;
+        toUser.innerHTML = `Enviando para <span>${userToSend}</span> (${messageStatus})`;
+    }
+}
