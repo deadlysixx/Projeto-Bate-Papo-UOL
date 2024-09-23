@@ -188,3 +188,16 @@ function loadUsers(name) {
         </div>
     `;
 }
+
+// Pegar todos os usuários conectados
+function getAllUsersConnected() {
+    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants/04ec5f53-74f5-4dce-b49d-8a6f52338b90");
+
+    promise.then((res) => {
+        document.querySelector(".users-connected").innerHTML = "";
+
+        for (let i = 0; i < res.data.length; i++) {
+            loadUsers(res.data[i].name);
+        }
+    });
+}
