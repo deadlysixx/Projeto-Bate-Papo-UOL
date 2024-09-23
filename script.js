@@ -40,3 +40,10 @@ function resetAndLoadMessages() {
     else document.querySelector(".loading-messages").classList.add("hidden");
 }
 
+// Validação de usuários
+function keepUserConnected() {
+    const nameInput = document.querySelector(".name-section input").value;
+    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/status/04ec5f53-74f5-4dce-b49d-8a6f52338b90", { name: nameInput });
+
+    promise.then((res) => res.data);
+}
