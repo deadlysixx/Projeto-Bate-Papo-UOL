@@ -201,3 +201,14 @@ function getAllUsersConnected() {
         }
     });
 }
+
+// Alternando usuários conectados na barra lateral
+function toggleUserSidebar() {
+    document.querySelector("aside").classList.add('active');
+    document.querySelector(".black-screen").classList.remove('hidden');
+
+    document.querySelector(".black-screen").onclick = () => {
+        document.querySelector("aside").classList.remove('active');
+        document.querySelector(".black-screen").classList.add('hidden');
+    }
+}
