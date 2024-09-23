@@ -149,3 +149,28 @@ function getUserAndStatus() {
         type = "message";
     }
 }
+
+// Enviando mensagem
+function sendMessage() {
+    const nameInput = document.querySelector(".name-section input").value;
+    let messageInput = document.querySelector("footer input");
+
+    getUserAndStatus();
+
+    let messageValues = {
+        from: nameInput,
+        to: to,
+        text: messageInput.value,
+        type: type,
+    };
+
+    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages/04ec5f53-74f5-4dce-b49d-8a6f52338b90", messageValues);
+
+    promise.then((res) => res.data);
+    promise.catch((err) => {
+        alert(`${err.response.status} Usuário saiu da sala`);
+        window.location.reload();
+    });
+
+    messageInput.value = "";
+}
