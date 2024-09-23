@@ -212,3 +212,21 @@ function toggleUserSidebar() {
         document.querySelector(".black-screen").classList.add('hidden');
     }
 }
+
+// Selecionar um usuário ou todos
+function selectUser(user) {
+    const selected = document.querySelector(".selected");
+    let toUser = document.querySelector('.to-message h4');
+
+    if (selected !== null) selected.classList.remove("selected");
+    user.classList.add("selected");
+
+    if (user.classList.contains("selected")) {
+        if(user.querySelector('p').innerHTML === "Todos") {
+            messageStatus = "Público";
+            document.querySelectorAll('.visibility div').forEach(visible => visible.classList.remove('status'));
+        }
+        userToSend = user.querySelector('p').innerHTML;
+        toUser.innerHTML = `Enviando para <span>${userToSend}</span> (${messageStatus})`;
+    }
+}
