@@ -82,7 +82,6 @@ function loadMessages(to, from, type, text) {
                 </div>
             `;
         }
-
     } else {
         document.querySelector("main").innerHTML += `
             <div class="message ${typeMessage}">
