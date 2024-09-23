@@ -109,3 +109,15 @@ function scrollToEveryNewMessage(message) {
             }
         }
         count++;
+    } else if (count === 1) {
+        curMess = message[length].time;
+        count++;
+        if (prevMess === curMess) count = 0;
+        else {
+            let screenHeight = "" + window.innerHeight / 8;
+            document.querySelector(".message:last-child").scrollIntoView(false);
+            window.scrollBy(0, screenHeight);
+            count = 0;
+        }
+    }
+}
