@@ -176,7 +176,7 @@ Será utilizado o FIGMA para determinar o LAYOUT.
 - Como scrollar o chat para o final?
     
     <aside>
-    <img src="/icons/bookmark_lightgray.svg" alt="/icons/bookmark_lightgray.svg" width="40px" /> Para fazer um elemento aparecer na tela, utilize a função `scrollIntoView`. Abaixo, temos um código como exemplo de utilização:
+    Para fazer um elemento aparecer na tela, utilize a função `scrollIntoView`. Abaixo, temos um código como exemplo de utilização:
     
     ```jsx
     const elementoQueQueroQueApareca = document.querySelector('.mensagem');
@@ -190,6 +190,6 @@ Será utilizado o FIGMA para determinar o LAYOUT.
 - Como forçar a atualização da tela?
     
     <aside>
-    <img src="/icons/bookmark_lightgray.svg" alt="/icons/bookmark_lightgray.svg" width="40px" /> Pesquise sobre a função `window.location.reload()`.
+    Pesquise sobre a função `window.location.reload()`.
     
     </aside>
